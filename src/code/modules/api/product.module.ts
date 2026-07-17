@@ -9,7 +9,7 @@ import {
   getProductByIdService,
   updateProductService,
   deleteProductService
-} from "@services/api/product.service";
+} from "@/code/services/api/product.service";
 
 type CreateData = {
   req: NextRequest;

@@ -4,7 +4,7 @@ import { catchError } from "@/utils/catch-error";
 
 import { 
   createProduct,
-} from "@modules/api/product.module";
+} from "@/code/modules/api/product.module";
 
 export async function POST(req: NextRequest){
   try {

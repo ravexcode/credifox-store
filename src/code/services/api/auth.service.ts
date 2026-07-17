@@ -1,4 +1,4 @@
-import { signInController } from "@controllers/api/auth.controller";
+import { signInController } from "@/code/controllers/api/auth.controller";
 
 import Response from "@/utils/responses";
 

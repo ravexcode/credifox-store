@@ -1,4 +1,4 @@
-import { signIn } from "@repository/api/auth";
+import { signIn } from "@/code/repository/api/auth";
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

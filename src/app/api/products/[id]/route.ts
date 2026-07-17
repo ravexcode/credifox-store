@@ -9,7 +9,7 @@ import {
   getProductById,
   updateProduct,
   deleteProduct
-} from "@modules/api/product.module";
+} from "@/code/modules/api/product.module";
 
 type Params = { params: Promise<{ id: string }> }
 

@@ -4,7 +4,7 @@ import {
   getProductByIdController,
   updateProductController,
   deleteProductController
-} from "@controllers/api/products.controller";
+} from "@/code/controllers/api/products.controller";
 
 import z from "zod";
 

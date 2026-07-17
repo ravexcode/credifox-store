@@ -19,8 +19,8 @@ type DeleteData = {
   token: string;
 }
 
-import { verifyAuth } from "@repository/api/auth";
-import { type ProductBasic, uploadProduct, getAllProducts, getProductById, updateProduct, deleteProduct } from "@repository/api/products";
+import { verifyAuth } from "@/code/repository/api/auth";
+import { type ProductBasic, uploadProduct, getAllProducts, getProductById, updateProduct, deleteProduct } from "@/code/repository/api/products";
 
 export async function createProductController(data: CreateData): Promise<{
   message: string;
