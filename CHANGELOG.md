@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.8.0:** Arreglo de errores dentro de Prisma
+
 **1.7.0:** Cambios ruta de code, / => /src/app
 
 **1.6.1:** Cambios menores en prisma
