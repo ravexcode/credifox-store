@@ -15,6 +15,15 @@ class Response {
     this.status = status ?? 500;
   }
 
+  errorRes() {
+    return NextResponse.json({
+      message: this.message,
+      error: this.error
+    }, {
+      status: this.status
+    })
+  }
+
   badRequest() {
     return NextResponse.json({
       message: "Required fields",

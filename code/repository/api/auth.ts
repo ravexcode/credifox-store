@@ -38,3 +38,20 @@ export async function verifyAuth(token: string) {
     status: 200
   };
 }
+
+export async function signIn(tag: string, password: string) {
+  const user = await prisma.user.findUniqueOrThrow({
+    where: { tag: tag }
+  })
+  .catch((e) => {
+    if(e instanceof Error) return {
+      message: e.message,
+      error: e.cause,
+      status: 502
+    };
+
+    throw new Error("Sign in error");
+  });
+
+  return user;
+}
