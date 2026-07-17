@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.6.1:** Cambios menores en prisma
+
 **1.6.0:** Log in creado
 
 **1.5.0:** CRUD Completo de los productos

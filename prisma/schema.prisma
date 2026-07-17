@@ -23,5 +23,6 @@ model User {
   uploaded      Json[]
   name          String
   password      String
+  logged_at     DateTime?
   created_at    DateTime      @default(now())
 }
