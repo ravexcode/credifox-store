@@ -20,10 +20,10 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@controllers/*": ["./code/controllers/"],
-      "@services/*": ["./code/services/"],
-      "@repository/*": ["./code/repository/"],
-      "@modules/*": ["./code/modules/"]
+      "@controllers/*": ["./code/controllers/*"],
+      "@services/*": ["./code/services/*"],
+      "@repository/*": ["./code/repository/*"],
+      "@modules/*": ["./code/modules/*"]
     }
   },
   "include": [
