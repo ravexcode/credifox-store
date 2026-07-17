@@ -2,7 +2,9 @@ import type { NextRequest } from "next/server";
 
 import { catchError } from "@/utils/catch-error";
 
-import { createProduct } from "@modules/api/product.module";
+import { 
+  createProduct,
+} from "@modules/api/product.module";
 
 export async function POST(req: NextRequest){
   try {

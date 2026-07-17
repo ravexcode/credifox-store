@@ -3,10 +3,29 @@ import { headers } from "next/headers"
 
 import Response from "@/utils/responses";
 
-import { createProductService } from "@services/api/product.service";
+import { 
+  createProductService,
+  getProductsService,
+  getProductByIdService,
+  updateProductService,
+  deleteProductService
+} from "@services/api/product.service";
 
 type CreateData = {
   req: NextRequest;
+}
+
+type GetByIdData = {
+  id: string;
+}
+
+type UpdateData = {
+  req: NextRequest;
+  id: string;
+}
+
+type DeleteData = {
+  id: string;
 }
 
 export async function createProduct(data: CreateData) {
@@ -17,5 +36,49 @@ export async function createProduct(data: CreateData) {
   return await createProductService({
     token,
     req: data.req
+  });
+}
+
+export async function getProducts() {
+  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+
+  if(!token) return new Response().notProvided();
+
+  return await getProductsService({
+    token
+  });
+}
+
+export async function getProductById(data: GetByIdData) {
+  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+
+  if(!token) return new Response().notProvided();
+
+  return await getProductByIdService({
+    token,
+    id: data.id
+  });
+}
+
+export async function updateProduct(data: UpdateData) {
+  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+
+  if(!token) return new Response().notProvided();
+
+  return await updateProductService({
+    token,
+    req: data.req,
+    id: data.id
+  });
+}
+
+export async function deleteProduct(data: DeleteData) {
+  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+
+  if(!token) return new Response().notProvided();
+
+  return await deleteProductService({
+    token,
+    id: data.id
   });
 }

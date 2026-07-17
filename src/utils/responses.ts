@@ -51,6 +51,25 @@ class Response {
       status: 402
     })
   }
+
+  notFound() {
+    return NextResponse.json({
+      message: this.message,
+      error: this.error
+    }, {
+      status: 404
+    })
+  }
+
+  ok(data: any) {
+    return NextResponse.json({
+      message: this.message,
+      error: this.error,
+      data
+    }, {
+      status: 200
+    })
+  }
 }
 
 export default Response;
