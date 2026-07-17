@@ -73,7 +73,6 @@ class Response {
   ok(data: any) {
     return NextResponse.json({
       message: this.message,
-      error: this.error,
       data
     }, {
       status: 200

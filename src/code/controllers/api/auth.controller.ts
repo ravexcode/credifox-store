@@ -13,9 +13,7 @@ type SignInData = {
 }
 
 export async function signInController(data: SignInData): Promise<Controller> {
-  const now = new Date();
-
-  const user = await signIn(data.tag, data.password) as User;
+  const user = await signIn(data.tag) as User;
 
   const matches = await bcrypt.compare(data.password, user.password);
 

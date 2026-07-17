@@ -35,7 +35,6 @@ type DeleteData = {
 
 export async function createProductService(data: CreateData) {
   const product = await data.req.json();
-
   const schema = z.object({
     name: z.string().min(5).max(50),
     type: z.string().min(5).max(30),

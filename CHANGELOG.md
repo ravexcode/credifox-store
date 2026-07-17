@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.9.0:** Los productos ya se pueden subir
+
 **1.8.0:** Arreglo de errores dentro de Prisma
 
 **1.7.0:** Cambios ruta de code, / => /src/app

@@ -39,7 +39,7 @@ export async function verifyAuth(token: string) {
   };
 }
 
-export async function signIn(tag: string, password: string) {
+export async function signIn(tag: string,) {
   const user = await prisma.user.findUniqueOrThrow({
     where: { tag: tag }
   })
