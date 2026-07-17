@@ -3,7 +3,7 @@ CREATE TABLE "Product" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "type" TEXT NOT NULL,
-    "variations" TEXT NOT NULL,
+    "variations" TEXT[] NOT NULL,
     "cost" INTEGER NOT NULL,
     "values" JSONB NOT NULL,
     "images_url" TEXT[],
