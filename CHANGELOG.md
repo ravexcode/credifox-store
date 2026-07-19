@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.10.1:** Agregacion de proveedores disponibles a nextjs
+
 **1.10.0:** Interfaz de defecto creada
 
 **1.9.0:** Los productos ya se pueden subir
