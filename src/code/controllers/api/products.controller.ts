@@ -41,16 +41,12 @@ export async function createProductController(data: CreateData): Promise<{
   }
 }
 
-export async function getProductsController(data: { token: string }): Promise<{
+export async function getProductsController(): Promise<{
   message: string;
   products?: any[];
   error?: string;
   status: number;
 }> {
-  const verify = await verifyAuth(data.token);
-
-  if(verify.status >= 205) return verify;
-
   const products = await getAllProducts();
 
   return {

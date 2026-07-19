@@ -40,13 +40,9 @@ export async function createProduct(data: CreateData) {
 }
 
 export async function getProducts() {
-  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+  const data =  await getProductsService();
 
-  if(!token) return new Response().notProvided();
-
-  return await getProductsService({
-    token
-  });
+  return data
 }
 
 export async function getProductById(data: GetByIdData) {

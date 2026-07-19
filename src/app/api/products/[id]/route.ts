@@ -5,7 +5,6 @@ import { catchError } from "@/utils/catch-error";
 import Response from "@/utils/responses";
 
 import {
-  getProducts,
   getProductById,
   updateProduct,
   deleteProduct
@@ -20,11 +19,8 @@ export async function GET(
   try {
     const { id } = await params;
 
-    if(id) {
-      return await getProductById({ id });
-    }
+    return await getProductById({ id });
 
-    return await getProducts();
   } catch (e) {
     return catchError(e);
   }

@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.11.0:** Obtencion de productos por parte del cliente, creada
+
 **1.10.1:** Agregacion de proveedores disponibles a nextjs
 
 **1.10.0:** Interfaz de defecto creada

@@ -58,10 +58,12 @@ export async function createProductService(data: CreateData) {
   return new Response(res.message, undefined, res.status).created(res.product);
 }
 
-export async function getProductsService(data: { token: string }) {
-  const res = await getProductsController(data);
-
+export async function getProductsService() {
+  const res = await getProductsController();
+  
   if(res.error) return new Response(res.message, res.error, res.status).serverError();
+
+  console.log(new Response(res.message, undefined, res.status).created(res.products))
 
   return new Response(res.message, undefined, res.status).created(res.products);
 }
