@@ -16,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Credifox",
-  description: "Tienda en linea para Credifox, un negocio dedicado a proveer productos de buena calidad a usuarios que lo requieren",
+  title: "Credifox - Productos de calidad",
+  description: "Credifox donde nos importa tu bolsillo y que estes satisfechos, productos de calidad a buen precio.",
+  icons: {
+    icon: "/logo.svg"
+  }
 };
 
 export default function RootLayout({

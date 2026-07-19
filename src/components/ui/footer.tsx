@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer() {
+import { memo } from "react";
+
+function Footer() {
   const linkClass = "hover:text-orange-500 duration-200 hover:underline";
   const topClass = "font-medium mb-1";
   const containerClass = "flex flex-col gap-1 md:text-start text-zinc-50 text-xs md:w-max w-full text-center"
@@ -88,3 +90,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default memo(Footer)

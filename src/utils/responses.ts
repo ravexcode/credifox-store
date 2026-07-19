@@ -46,10 +46,10 @@ class Response {
     return NextResponse.json({
       message: this.message,
       error: this.error,
-      data
+      data: data
     }, {
       status: 201
-    })
+    });
   };
 
   notProvided() {

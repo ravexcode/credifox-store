@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Header() {
+import { memo } from "react";
+
+function Header() {
   const linkClass = "text-xs hover:text-orange-600 duration-200 hover:underline";
 
   return (
     <header
-    className="w-full p-2 md:p-3 sticky top-0 flex justify-between items-center">
+    className="w-full p-2 md:p-3 sticky top-0 flex justify-between items-center bg-zinc-50 border-b border-neutral-200/80">
       <Image
       src="/large.svg"
       alt="Credifox logo"
@@ -37,3 +39,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default memo(Header)
