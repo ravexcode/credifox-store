@@ -5,7 +5,6 @@ type CreateData = {
 
 type GetByIdData = {
   id: string;
-  token: string;
 }
 
 type UpdateData = {
@@ -62,10 +61,6 @@ export async function getProductByIdController(data: GetByIdData): Promise<{
   error?: string;
   status: number;
 }> {
-  const verify = await verifyAuth(data.token);
-
-  if(verify.status >= 205) return verify;
-
   const product = await getProductById(data.id);
 
   if(!product) {

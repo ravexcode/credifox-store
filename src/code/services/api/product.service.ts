@@ -18,7 +18,6 @@ type CreateData = {
 }
 
 type GetByIdData = {
-  token: string;
   id: string;
 }
 

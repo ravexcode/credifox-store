@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.14.0:** Inicio de pagina de vista de producto.
+
 **1.13.0:** Mejoras de diseño.
 
 **1.12.0:** Productos visibles para los usuarios
