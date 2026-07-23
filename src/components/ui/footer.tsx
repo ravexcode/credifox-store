@@ -4,7 +4,7 @@ import Link from "next/link";
 import { memo } from "react";
 
 function Footer() {
-  const linkClass = "hover:text-orange-500 duration-200 hover:underline";
+  const linkClass = "hover:text-orange-500 duration-100 hover:underline";
   const topClass = "font-medium mb-1";
   const containerClass = "flex flex-col gap-1 md:text-start text-zinc-50 text-sm md:w-max w-full text-center"
 
@@ -20,12 +20,12 @@ function Footer() {
       className="w-full flex flex-col md:flex-row gap-5 md:gap-10 flex-wrap tracking-wide items-center md:items-start justify-center cursor-default px-5 md:px-10">
 
         <Image
-        src="/large_white.svg"
+        src="/expanded_white.svg"
         alt="Credifox white logo"
-        width={1200}
-        height={500}
+        width={200}
+        height={200}
         loading="lazy"
-        className="w-30 md:mr-auto" />
+        className="h-13 md:mr-auto w-max" />
 
         <div
         className={containerClass}>

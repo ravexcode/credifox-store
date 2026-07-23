@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.15.0:** Log in creado.
+
 **1.14.0:** Inicio de pagina de vista de producto.
 
 **1.13.0:** Mejoras de diseño.

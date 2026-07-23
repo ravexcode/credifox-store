@@ -23,7 +23,8 @@
       "@controllers/*": ["./src/code/controllers/*"],
       "@services/*": ["./src/code/services/*"],
       "@repository/*": ["./src/code/repository/*"],
-      "@modules/*": ["./src/code/modules/*"]
+      "@modules/*": ["./src/code/modules/*"],
+      "@shadcn/*": ["./src/components/shadcn/ui/*"],
     }
   },
   "include": [
