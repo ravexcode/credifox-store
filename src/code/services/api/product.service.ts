@@ -63,8 +63,6 @@ export async function getProductsService() {
   
   if(res.error) return new Response(res.message, res.error, res.status).serverError();
 
-  console.log(new Response(res.message, undefined, res.status).created(res.products))
-
   return new Response(res.message, undefined, res.status).created(res.products);
 }
 

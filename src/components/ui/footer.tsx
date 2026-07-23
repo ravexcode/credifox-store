@@ -6,7 +6,7 @@ import { memo } from "react";
 function Footer() {
   const linkClass = "hover:text-orange-500 duration-200 hover:underline";
   const topClass = "font-medium mb-1";
-  const containerClass = "flex flex-col gap-1 md:text-start text-zinc-50 text-xs md:w-max w-full text-center"
+  const containerClass = "flex flex-col gap-1 md:text-start text-zinc-50 text-sm md:w-max w-full text-center"
 
   return (
     <footer
@@ -17,7 +17,7 @@ function Footer() {
       </p>
 
       <div
-      className="w-full flex flex-col md:flex-row gap-5 md:gap-10 flex-wrap tracking-wide items-center md:items-start justify-center cursor-default px-10 md:px-20">
+      className="w-full flex flex-col md:flex-row gap-5 md:gap-10 flex-wrap tracking-wide items-center md:items-start justify-center cursor-default px-5 md:px-10">
 
         <Image
         src="/large_white.svg"
@@ -25,7 +25,7 @@ function Footer() {
         width={1200}
         height={500}
         loading="lazy"
-        className="w-25 md:mr-auto" />
+        className="w-30 md:mr-auto" />
 
         <div
         className={containerClass}>

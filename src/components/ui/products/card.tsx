@@ -1,7 +1,5 @@
 import type Product from "@/types/products";
 
-import { IconEye } from "@tabler/icons-react";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,31 +10,42 @@ type Props = {
 }
 
 export default function ProductCard(props: Props) {
+  const product = props.data;
+
   return (
-    <div
-    className="max-w-80 w-full h-100 border mix-blend-multiply border-neutral-200 bg-white hover:brightness-90 duration-200 rounded-sm flex flex-col items-center justify-start p-5 cursor-pointer">
-      <p
-      className="text-xs text-neutral-400 w-full text-end">
-        ID: {props.data.id}
-      </p>
+    <section
+    className="w-70 flex flex-col gap-2 items-center justify-center p-2">
+      <div
+      className="w-full flex items-center justify-center relative">
+        <Image
+        src={product.images_url[0]}
+        alt={product.name + " image"}
+        width={250}
+        height={250}
+        loading="lazy"
+        className="rounded-md aspect-square w-full block border border-neutral-200" />
 
-      <Image
-      src={props.data.images_url[0]}
-      alt={props.data.name}
-      width={250}
-      height={250}
-      loading="lazy"
-      className="rounded-md" />
-      
-      <p
-      className="text-lg font-medium mt-5 w-full text-start">
-        {props.data.name}
-      </p>
+        <span
+        className="absolute top-2 right-4 scale-90 text-xs rounded-full border border-neutral-300 bg-zinc-50 text-neutral-950 py-1 w-25 text-center font-medium">
+          {product.type.slice(0,1).toUpperCase() + product.type.slice(1, product.type.length)}
+        </span>
+      </div>
 
       <p
-      className="text-2xl tracking-wide font-bold w-full text-start mt-auto">
-        ${genPrice(props.data.cost)} MXN
+      className="text-xl font-medium w-full text-start">
+        {product.name}
       </p>
-    </div>
+
+      <p
+      className="text-xl font-bold text-start w-full">
+        ${genPrice(product.cost)} MXN
+      </p>
+
+      <Link
+      href={`/products/${product.id}`}
+      className="w-full rounded-full mt-2 text-zinc-50 bg-orange-500 p-2 text-center font-bold duration-200 hover:bg-orange-600" >
+        Explorar
+      </Link>
+    </section>
   )
 }

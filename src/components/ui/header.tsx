@@ -4,11 +4,11 @@ import Link from "next/link";
 import { memo } from "react";
 
 function Header() {
-  const linkClass = "text-xs hover:text-orange-600 duration-200 hover:underline";
+  const linkClass = "text-sm hover:text-orange-600 duration-200 hover:underline";
 
   return (
     <header
-    className="w-full p-2 md:p-3 sticky top-0 flex justify-between items-center bg-zinc-50 border-b border-neutral-200/80">
+    className="w-full p-2 md:p-3 sticky top-0 flex justify-between items-center bg-zinc-50 border-b border-neutral-200/80 z-10">
       <Image
       src="/large.svg"
       alt="Credifox logo"
