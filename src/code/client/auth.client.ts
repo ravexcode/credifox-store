@@ -6,7 +6,7 @@ type SignInData = {
 export async function signIn(body: SignInData) {
   const res = await fetch(
     "/api/auth/sign-in", {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "credifox-api-key": process.env.CREDIFOX_API_KEY!

@@ -7,7 +7,8 @@ import JWTSK from "@/constraints/jwt-secret";
 import { UserPayload } from "@/interfaces/user.payload";
 
 export async function verifyAuth(token: string) {
-  const decoded = jwt.verify(token, JWTSK) as UserPayload;
+  console.log(token);
+  const decoded = jwt.verify(token, JWTSK, { algorithms: ["HS256"] }) as UserPayload;
 
   const invalid = {
     message: "Invalid token",

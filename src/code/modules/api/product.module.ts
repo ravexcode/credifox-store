@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server"
-import { headers } from "next/headers"
+
+import { SessionCacheManager } from "@/code/services/session.service";
 
 import Response from "@/utils/responses";
 
@@ -29,7 +30,7 @@ type DeleteData = {
 }
 
 export async function createProduct(data: CreateData) {
-  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+  const token = await SessionCacheManager.get();
 
   if(!token) return new Response().notProvided();
 
@@ -52,7 +53,7 @@ export async function getProductById(data: GetByIdData) {
 }
 
 export async function updateProduct(data: UpdateData) {
-  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+  const token = await SessionCacheManager.get();
 
   if(!token) return new Response().notProvided();
 
@@ -64,7 +65,7 @@ export async function updateProduct(data: UpdateData) {
 }
 
 export async function deleteProduct(data: DeleteData) {
-  const token = (await headers()).get("Authorization")?.replace(" Bearer", " ");
+  const token = await SessionCacheManager.get();
 
   if(!token) return new Response().notProvided();
 

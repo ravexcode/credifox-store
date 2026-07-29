@@ -1,5 +1,7 @@
 import { signInController } from "@/code/controllers/api/auth.controller";
 
+import { SessionCacheManager } from "@/code/services/session.service";
+
 import Response from "@/utils/responses";
 
 import { NextRequest } from "next/server";
@@ -21,6 +23,8 @@ export async function signInService(req: NextRequest) {
   const res = await signInController(content);
 
   if(res.status >= 205) return new Response(res.message, res.error, res.status).errorRes();
+
+  await SessionCacheManager.set(res.data);
 
   return new Response(res.message, undefined, res.status).ok(res.data);
 }

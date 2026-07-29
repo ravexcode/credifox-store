@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { signIn } from "@/code/client/auth.client";
+import { SessionManagerClient } from "@/code/services/client.service";
 
 export default function SignIn() {
   const router = useRouter();
@@ -22,16 +23,16 @@ export default function SignIn() {
     e.preventDefault();
 
     isLoading(true);
-    const token = await signIn({
+    const content = await signIn({
       tag,
       password: pass
     });
 
-    if(!token) return isLoading(false);
+    if(!content.data) return isLoading(false);
 
-    //token is res.data
+    SessionManagerClient.set(content.data);
 
-    return router.push("/dasboard");
+    return router.push("/admin/dashboard");
   }
   
   return (
