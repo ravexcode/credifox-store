@@ -1,13 +1,5 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import { useRouter } from "next/router"
-
-export default function Return() {
-  const router = useRouter();
-
-  router.push("/")
-
-  return (
-    <div></div>
-  )
+export default async function Products() {
+  redirect("/");
 }
