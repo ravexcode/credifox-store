@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.21.0:** Previsualizacion de productos creada
+
 **1.20.0:** Pagina para actualizar productos, creada y funcional.
 
 **1.19.0:** Pagina para crear producto, completa.
