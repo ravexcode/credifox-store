@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.17.0:** Pagina para crear producto funcional
+
 **1.16.0:** Dashboard y obtencion del datos funcional
 
 **1.15.0:** Log in creado.
