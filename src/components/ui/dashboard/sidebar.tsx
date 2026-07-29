@@ -6,7 +6,9 @@ import Option from "./option";
 
 import {
   IconLayout,
-  IconDeviceMobile
+  IconDeviceMobile,
+  IconDeviceMobileCog,
+  IconUserCircle
 } from "@tabler/icons-react";
 
 interface Props {
@@ -16,7 +18,7 @@ interface Props {
 export default function Sidebar(props: Props) {
   return (
     <aside
-    className="w-64 flex flex-col items-center justify-start py-5 gap-1 h-screen bg-orange-600">
+    className="w-64 flex flex-col items-center justify-start pt-5 pb-2 gap-1 h-screen bg-linear-to-b from-orange-600 to-red-800">
       <Image
       src="/large_white.svg"
       alt="Logo"
@@ -38,10 +40,23 @@ export default function Sidebar(props: Props) {
         size={20} />
         Crear producto
       </Option>
-
+      <Option
+      link="/admin/edit">
+        <IconDeviceMobileCog
+        size={20} />
+        Editar productos
+      </Option>
+      
+      <Option
+      link="/admin/profile"
+      className="mt-auto mb-2">
+        <IconUserCircle
+        size={20} />
+        Mi perfil
+      </Option>
       <p
-      className="mt-auto w-full text-center text-sm text-zinc-50">
-        {process.env.NEXT_PUBLIC_CURRENT_VERSION ?? "En desarollo"}
+      className="w-full text-center text-sm text-zinc-50">
+        Version: {process.env.NEXT_PUBLIC_CURRENT_VERSION ?? "En desarollo"}
       </p>
     </aside>
   )
