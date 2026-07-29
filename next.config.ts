@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'telmovmx.vtexassets.com',
+        hostname: 'www.telcel.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fdn2.gsmarena.com',
       },
     ],
   },
