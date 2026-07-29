@@ -11,7 +11,7 @@ interface Props {
 export default function AdminLayout(props: Props) {
   return (
     <div
-    className="w-full min-h-screen grid grid-cols-[auto_1fr] justify-center items-start">
+    className="w-full h-screen grid grid-cols-[auto_1fr] justify-center items-start">
       <Sidebar
       user={props.user} />
 

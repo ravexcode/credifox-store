@@ -2,7 +2,9 @@
 
 ## Pre-lanzamiento:
 
-**1.18.0:** Pagina para crear producto funcional
+**1.19.0:** Pagina para crear producto, completa.
+
+**1.18.0:** Mejoras para la pagina para crear el producto.
 
 **1.17.0:** Pagina para crear producto funcional
 

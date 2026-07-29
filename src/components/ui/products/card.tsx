@@ -23,7 +23,7 @@ export default function ProductCard(props: Props) {
         width={250}
         height={250}
         loading="lazy"
-        className="rounded-md aspect-square w-full object-contain block border border-neutral-200" />
+        className="rounded-md aspect-square w-full object-contain block border border-neutral-200 p-4" />
 
         <span
         className="absolute top-2 right-4 scale-90 text-xs rounded-full border border-neutral-300 bg-zinc-50 text-neutral-950 py-1 w-25 text-center font-medium">

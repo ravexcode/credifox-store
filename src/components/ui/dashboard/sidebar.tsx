@@ -16,7 +16,7 @@ interface Props {
 export default function Sidebar(props: Props) {
   return (
     <aside
-    className="w-64 flex flex-col items-center justify-start py-5 gap-1 h-full bg-orange-600">
+    className="w-64 flex flex-col items-center justify-start py-5 gap-1 h-screen bg-orange-600">
       <Image
       src="/large_white.svg"
       alt="Logo"
