@@ -12,6 +12,7 @@ import { getProduct } from "@/code/client/products.client";
 
 import type Product from "@/types/products";
 import genPrice from "@/utils/price-gen";
+import Footer from "@/components/ui/footer";
 
 type SpecRow = { label: string; value: string | number | undefined };
 
@@ -65,102 +66,108 @@ export default function ProductPage() {
   ].filter(r => r.value);
 
   return (
-    <div className="min-h-screen h-max p-5">
-      <Link
-      href={"/"}
-      className="w-40 gap-1 flex items-center justify-center hover:bg-neutral-200 border border-neutral-200 p-1.5 rounded-full duration-300" >
-        <IconArrowLeft stroke={1.5} size={20} />
-        Regresar
-      </Link>
+    <div className="min-h-screen flex flex-col items-center justify-between">
 
-      <section className="flex md:flex-row flex-col gap-5 md:gap-10 p-5 md:p-10">
-        <div className="max-w-150 w-full">
-          <Image
-          src={product.images_url[selectedImg] || product.images_url[0]}
-          alt={product.name}
-          width={2000}
-          height={2000}
-          loading="eager"
-          preload
-          className="rounded-md border border-neutral-300 w-max h-full" />
+      <main
+      className="w-full flex-col p-5 items-center justify-center">
+        <Link
+        href={"/"}
+        className="w-40 gap-1 flex items-center justify-center hover:bg-neutral-200 border border-neutral-200 p-1.5 rounded-full duration-300" >
+          <IconArrowLeft stroke={1.5} size={20} />
+          Regresar
+        </Link>
 
-          {product.images_url.length > 1 && (
-            <div className="w-full flex gap-2 justify-center items-center mt-5">
-              {product.images_url.map((_, i) => (
-                <span
-                key={i}
-                className={"block rounded-full w-3.5 h-3.5 border border-neutral-400 cursor-pointer duration-200 " + ( selectedImg === i ? "bg-neutral-800" : "bg-white" )}
-                onClick={() => setSelectedImg(i)} />
-              ))}
-            </div>
-          )}
-        </div>
+        <section className="flex md:flex-row flex-col gap-5 md:gap-10 p-5 md:p-10">
+          <div className="max-w-150 w-full">
+            <Image
+            src={product.images_url[selectedImg] || product.images_url[0]}
+            alt={product.name}
+            width={2000}
+            height={2000}
+            loading="eager"
+            preload
+            className="rounded-md border border-neutral-300 w-max h-full" />
 
-        <div className="w-full flex flex-col justify-start items-start gap-4">
-          <div>
-            {(product.values.brand || product.values.model) && (
-              <p className="text-sm text-neutral-500 mb-1">
-                {product.values.brand} {product.values.model}
-              </p>
+            {product.images_url.length > 1 && (
+              <div className="w-full flex gap-2 justify-center items-center mt-5">
+                {product.images_url.map((_, i) => (
+                  <span
+                  key={i}
+                  className={"block rounded-full w-3.5 h-3.5 border border-neutral-400 cursor-pointer duration-200 " + ( selectedImg === i ? "bg-neutral-800" : "bg-white" )}
+                  onClick={() => setSelectedImg(i)} />
+                ))}
+              </div>
             )}
-            <p className="text-4xl md:text-5xl font-extrabold leading-tight">
-              {product.name}
-            </p>
           </div>
 
-          <div>
-            <p className="text-3xl md:text-4xl font-bold">
-              ${genPrice(product.cost)} MXN
-              <span className="text-neutral-600 font-normal text-base ml-2">
-                De contado
-              </span>
-            </p>
-            {phone?.credit_price ? (
-              <p className="text-2xl md:text-3xl font-medium mt-1">
-                ${genPrice(phone.credit_price)} MXN
+          <div className="w-full flex flex-col justify-start items-start gap-4">
+            <div>
+              {(product.values.brand || product.values.model) && (
+                <p className="text-sm text-neutral-500 mb-1">
+                  {product.values.brand} {product.values.model}
+                </p>
+              )}
+              <p className="text-4xl md:text-5xl font-extrabold leading-tight">
+                {product.name}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-3xl md:text-4xl font-bold">
+                ${genPrice(product.cost)} MXN
                 <span className="text-neutral-600 font-normal text-base ml-2">
-                  A crédito
+                  De contado
                 </span>
               </p>
-            ) : (
-              <p className="text-neutral-500 text-sm flex gap-1 items-center mt-1">
-                <IconInfoCircle size={16} />
-                No disponible a crédito
-              </p>
+              {phone?.credit_price ? (
+                <p className="text-2xl md:text-3xl font-medium mt-1">
+                  ${genPrice(phone.credit_price)} MXN
+                  <span className="text-neutral-600 font-normal text-base ml-2">
+                    A crédito
+                  </span>
+                </p>
+              ) : (
+                <p className="text-neutral-500 text-sm flex gap-1 items-center mt-1">
+                  <IconInfoCircle size={16} />
+                  No disponible a crédito
+                </p>
+              )}
+            </div>
+
+            {product.variations.length > 0 && (
+              <div>
+                <p className="text-sm font-medium mb-2">Versiones</p>
+                <div className="flex gap-2 flex-wrap">
+                  {product.variations.map((v, i) => (
+                    <button
+                    key={i}
+                    onClick={() => setSelectedVar(i)}
+                    className={"rounded-xs border px-4 py-2 text-sm cursor-pointer duration-200 " + (selectedVar === i ? "border-orange-500 bg-orange-500 text-white" : "border-neutral-300 hover:border-orange-500")}>
+                      {v}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {specs.length > 0 && (
+              <div className="w-full border-t border-neutral-200 pt-4 mt-2">
+                <p className="text-lg font-medium mb-3">Especificaciones</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-2">
+                  {specs.map((s, i) => (
+                    <div key={i} className="text-sm">
+                      <span className="text-neutral-500">{s.label}</span>
+                      <p className="font-medium">{s.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
+        </section>
+      </main>
 
-          {product.variations.length > 0 && (
-            <div>
-              <p className="text-sm font-medium mb-2">Versiones</p>
-              <div className="flex gap-2 flex-wrap">
-                {product.variations.map((v, i) => (
-                  <button
-                  key={i}
-                  onClick={() => setSelectedVar(i)}
-                  className={"rounded-xs border px-4 py-2 text-sm cursor-pointer duration-200 " + (selectedVar === i ? "border-orange-500 bg-orange-500 text-white" : "border-neutral-300 hover:border-orange-500")}>
-                    {v}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {specs.length > 0 && (
-            <div className="w-full border-t border-neutral-200 pt-4 mt-2">
-              <p className="text-lg font-medium mb-3">Especificaciones</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-2">
-                {specs.map((s, i) => (
-                  <div key={i} className="text-sm">
-                    <span className="text-neutral-500">{s.label}</span>
-                    <p className="font-medium">{s.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      <Footer />
     </div>
   )
 }

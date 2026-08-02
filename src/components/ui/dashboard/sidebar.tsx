@@ -35,7 +35,7 @@ export default function Sidebar(props: Props) {
         Panel
       </Option>
       <Option
-      link="/admin/dashboard">
+      link="/admin/create">
         <IconDeviceMobile
         size={20} />
         Crear producto

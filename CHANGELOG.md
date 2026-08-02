@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.23.0:** Cambios leves en UI y mejoras de diseño.
+
 **1.22.0:** Creacion de base para POS.
 
 **1.21.1:** Redireccion creada, sidebar actualizado y cambios en el componente de options

@@ -6,7 +6,7 @@ import DefaultLayout from "@/layouts/default";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { signIn } from "@/code/client/auth.client";
 import { SessionManagerClient } from "@/code/services/client.service";
@@ -18,6 +18,14 @@ export default function SignIn() {
   const [ pass, setPass ] = useState("");
 
   const [ loading, isLoading ] = useState(false);
+
+  useEffect(() => {
+    const token = SessionManagerClient.get();
+
+    if(token) return router.push("/admin/dashboard");
+
+    return;
+  }, []);
 
   const handleSubmit = async(e: React.SubmitEvent) => {
     e.preventDefault();

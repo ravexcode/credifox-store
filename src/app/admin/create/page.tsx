@@ -118,7 +118,10 @@ export default function Page() {
         ...form.values,
         ...(!showPhone || !form.values.phone_values?.RAM
           ? {}
-          : { phone_values: form.values.phone_values }),
+          : { phone_values: {
+              ...form.values.phone_values,
+              credit_price: (form.values.phone_values.credit_price || 0 * 100)
+          } }),
       },
     };
 
@@ -428,7 +431,7 @@ export default function Page() {
                     type="number"
                     placeholder="0"
                     {...inputClass(String(form.values.phone_values?.credit_price ?? ""))}
-                    message="Precio en pesos mexicanos (MXN)"
+                    message="Precio en centavos mexicanos (MXN)"
                     name="credit_price"
                     onChange={(e) => phoneField("credit_price")(Number(e.target.value))} />
                   </div>
