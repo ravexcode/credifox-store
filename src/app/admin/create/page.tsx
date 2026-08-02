@@ -158,12 +158,12 @@ export default function Page() {
 
   const previewProduct: Product = {
     id: "preview",
-    name: form.values.brand + " " + form.name || form.values.brand + form.values.model || "Modelo del producto",
+    name: form.values.brand && form.values.model ? (form.values.brand + " " + form.name.toUpperCase() || form.values.brand + form.values.model) : "Modelo del producto",
     type: form.type || "Tipo",
     variations: form.variations.filter(Boolean),
     cost: (form.cost || 100) * 100,
     values: form.values,
-    images_url: form.images_url.filter(Boolean),
+    images_url: form.images_url[0] ? form.images_url : [ "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg" ],
   };
 
   const templates: Record<string, Partial<FormData>> = {
@@ -449,11 +449,7 @@ export default function Page() {
 
           <div className="w-full max-w-150 flex flex-col items-center justify-start h-full">
             <p className="text-sm font-medium mb-3">Vista previa</p>
-            {previewProduct.images_url.length > 0 && previewProduct.name !== "Modelo del producto"
-              ? <ProductCard data={previewProduct} />
-              : <div className="w-70 h-100 rounded-xs border border-dashed border-neutral-300 flex items-center justify-center text-neutral-600 text-sm text-center p-4">
-                  Completa los campos obligatorios para ver la vista previa
-                </div>}
+             <ProductCard data={previewProduct} />
           </div>
         </div>
       </div>

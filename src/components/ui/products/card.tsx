@@ -2,6 +2,7 @@ import type Product from "@/types/products";
 
 import Image from "next/image";
 import Link from "next/link";
+import { IconArrowRight } from "@tabler/icons-react";
 
 import genPrice from "@/utils/price-gen";
 
@@ -9,43 +10,90 @@ type Props = {
   data: Product
 }
 
-export default function ProductCard(props: Props) {
-  const product = props.data;
+export default function ProductCard({ data: product }: Props) {
+  const phone = product.values.phone_values;
+  const isPhone = !!phone;
+  const hasCredit = isPhone && !!phone?.has_credit && !!phone.credit_price;
 
   return (
-    <section
-    className="w-70 flex flex-col gap-2 items-center justify-center p-2">
+    <Link
+    href={`/products/${product.id}`}
+    className="group w-70 flex flex-col rounded-2xl border border-border bg-card overflow-hidden duration-300 hover:-translate-y-0.5 hover:shadow-lg">
       <div
-      className="w-full flex items-center justify-center relative">
+      className="relative aspect-square w-full overflow-hidden bg-muted/40">
         <Image
         src={product.images_url[0]}
-        alt={product.name + " image"}
-        width={250}
-        height={250}
+        alt={product.name}
+        fill
+        sizes="(max-width: 640px) 50vw, 20vw"
         loading="lazy"
-        className="rounded-md aspect-square w-full object-contain block border border-neutral-200 p-4" />
+        className="object-contain p-5 duration-500 group-hover:scale-105" />
 
         <span
-        className="absolute top-2 right-4 scale-90 text-xs rounded-full border border-neutral-300 bg-zinc-50 text-neutral-950 py-1 w-25 text-center font-medium">
-          {product.type.slice(0,1).toUpperCase() + product.type.slice(1, product.type.length)}
+        className="absolute top-3 left-3 rounded-full border border-border bg-background/80 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground backdrop-blur">
+          {product.type}
         </span>
       </div>
 
-      <p
-      className="text-xl font-medium w-full text-start">
-        {product.name}
-      </p>
+      <div
+      className="flex flex-col gap-2 p-4">
+        <p
+        className="truncate text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+          {product.values.brand}
+          {product.values.model ? ` · ${product.values.model}` : ""}
+        </p>
 
-      <p
-      className="text-xl font-bold text-start w-full">
-        ${genPrice(product.cost)} MXN
-      </p>
+        <h3
+        className="truncate text-base font-semibold leading-snug text-foreground">
+          {product.name}
+        </h3>
 
-      <Link
-      href={`/products/${product.id}`}
-      className="w-full rounded-full mt-2 text-zinc-50 bg-orange-500 p-2 text-center font-bold duration-200 hover:bg-orange-600" >
-        Explorar
-      </Link>
-    </section>
+        <div
+        className="flex items-baseline gap-2 pt-2">
+          {
+            hasCredit ?
+            <p
+            className="text-xl font-bold text-foreground">
+              Desde
+              <span
+              className="ml-1 text-sm font-medium text-muted-foreground">
+                $
+              </span>
+              {genPrice(phone!.credit_price! * 0.1)}
+              <span
+              className="ml-1 text-sm font-medium text-muted-foreground">
+                MXN
+              </span>
+            </p> :
+            isPhone ?
+            <p
+            className="text-sm font-medium text-muted-foreground">
+              No disponible a crédito
+            </p> :
+            <p
+            className="text-xl font-bold text-foreground">
+              <span
+              className="text-sm font-medium text-muted-foreground">
+                $
+              </span>
+              {genPrice(product.cost)}
+              <span
+              className="ml-1 text-sm font-medium text-muted-foreground">
+                MXN
+              </span>
+            </p>
+          }
+        </div>
+
+        <span
+        className="flex items-center justify-center gap-2 rounded-full bg-orange-500 py-2.5 text-sm font-semibold text-white transition-colors duration-200 group-hover:bg-orange-600">
+          Explorar
+          <IconArrowRight
+          size={16}
+          stroke={2}
+          className="transition-transform duration-200 group-hover:translate-x-0.5" />
+        </span>
+      </div>
+    </Link>
   )
 }
