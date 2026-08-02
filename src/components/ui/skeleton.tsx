@@ -11,7 +11,7 @@ function Skeleton() {
 
   return(
     <div
-    className="w-full h-full flex flex-col items-center justify-start p-10 animate-pulse animate-duration-1000 gap-10 -z-1">
+    className="w-full h-full flex flex-col items-center justify-start animate-pulse animate-duration-1000 gap-10 -z-1">
       <div className="w-full h-100 rounded-sm bg-neutral-200 hidden sm:block" />
 
       <div

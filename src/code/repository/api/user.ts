@@ -8,7 +8,6 @@ export async function getUserById(id: string) {
       tag: true,
       name: true,
       uploaded: true,
-      logged_at: true,
       created_at: true,
     }
   });

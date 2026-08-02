@@ -52,7 +52,8 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Product: 'Product',
-  User: 'User'
+  User: 'User',
+  Storaged: 'Storaged'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -75,10 +76,10 @@ export const ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
   type: 'type',
-  variations: 'variations',
   cost: 'cost',
   values: 'values',
-  images_url: 'images_url'
+  images_url: 'images_url',
+  variations: 'variations'
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -90,11 +91,22 @@ export const UserScalarFieldEnum = {
   uploaded: 'uploaded',
   name: 'name',
   password: 'password',
-  logged_at: 'logged_at',
   created_at: 'created_at'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const StoragedScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  stock: 'stock',
+  image_url: 'image_url',
+  created_at: 'created_at'
+} as const
+
+export type StoragedScalarFieldEnum = (typeof StoragedScalarFieldEnum)[keyof typeof StoragedScalarFieldEnum]
 
 
 export const SortOrder = {

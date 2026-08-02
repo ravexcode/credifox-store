@@ -29,7 +29,6 @@ export type UserMinAggregateOutputType = {
   tag: string | null
   name: string | null
   password: string | null
-  logged_at: Date | null
   created_at: Date | null
 }
 
@@ -38,7 +37,6 @@ export type UserMaxAggregateOutputType = {
   tag: string | null
   name: string | null
   password: string | null
-  logged_at: Date | null
   created_at: Date | null
 }
 
@@ -48,7 +46,6 @@ export type UserCountAggregateOutputType = {
   uploaded: number
   name: number
   password: number
-  logged_at: number
   created_at: number
   _all: number
 }
@@ -59,7 +56,6 @@ export type UserMinAggregateInputType = {
   tag?: true
   name?: true
   password?: true
-  logged_at?: true
   created_at?: true
 }
 
@@ -68,7 +64,6 @@ export type UserMaxAggregateInputType = {
   tag?: true
   name?: true
   password?: true
-  logged_at?: true
   created_at?: true
 }
 
@@ -78,7 +73,6 @@ export type UserCountAggregateInputType = {
   uploaded?: true
   name?: true
   password?: true
-  logged_at?: true
   created_at?: true
   _all?: true
 }
@@ -161,7 +155,6 @@ export type UserGroupByOutputType = {
   uploaded: runtime.JsonValue[]
   name: string
   password: string
-  logged_at: Date | null
   created_at: Date
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
@@ -192,7 +185,6 @@ export type UserWhereInput = {
   uploaded?: Prisma.JsonNullableListFilter<"User">
   name?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  logged_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
@@ -202,7 +194,6 @@ export type UserOrderByWithRelationInput = {
   uploaded?: Prisma.SortOrder
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  logged_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -215,7 +206,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   uploaded?: Prisma.JsonNullableListFilter<"User">
   name?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  logged_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }, "id" | "tag">
 
@@ -225,7 +215,6 @@ export type UserOrderByWithAggregationInput = {
   uploaded?: Prisma.SortOrder
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  logged_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -241,7 +230,6 @@ export type UserScalarWhereWithAggregatesInput = {
   uploaded?: Prisma.JsonNullableListFilter<"User">
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
-  logged_at?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
@@ -251,7 +239,6 @@ export type UserCreateInput = {
   uploaded?: Prisma.UserCreateuploadedInput | runtime.InputJsonValue[]
   name: string
   password: string
-  logged_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -261,7 +248,6 @@ export type UserUncheckedCreateInput = {
   uploaded?: Prisma.UserCreateuploadedInput | runtime.InputJsonValue[]
   name: string
   password: string
-  logged_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -271,7 +257,6 @@ export type UserUpdateInput = {
   uploaded?: Prisma.UserUpdateuploadedInput | runtime.InputJsonValue[]
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  logged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -281,7 +266,6 @@ export type UserUncheckedUpdateInput = {
   uploaded?: Prisma.UserUpdateuploadedInput | runtime.InputJsonValue[]
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  logged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -291,7 +275,6 @@ export type UserCreateManyInput = {
   uploaded?: Prisma.UserCreateuploadedInput | runtime.InputJsonValue[]
   name: string
   password: string
-  logged_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -301,7 +284,6 @@ export type UserUpdateManyMutationInput = {
   uploaded?: Prisma.UserUpdateuploadedInput | runtime.InputJsonValue[]
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  logged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -311,7 +293,6 @@ export type UserUncheckedUpdateManyInput = {
   uploaded?: Prisma.UserUpdateuploadedInput | runtime.InputJsonValue[]
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  logged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -336,7 +317,6 @@ export type UserCountOrderByAggregateInput = {
   uploaded?: Prisma.SortOrder
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  logged_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -345,7 +325,6 @@ export type UserMaxOrderByAggregateInput = {
   tag?: Prisma.SortOrder
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  logged_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -354,7 +333,6 @@ export type UserMinOrderByAggregateInput = {
   tag?: Prisma.SortOrder
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  logged_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -365,10 +343,6 @@ export type UserCreateuploadedInput = {
 export type UserUpdateuploadedInput = {
   set?: runtime.InputJsonValue[]
   push?: runtime.InputJsonValue | runtime.InputJsonValue[]
-}
-
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -383,7 +357,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   uploaded?: boolean
   name?: boolean
   password?: boolean
-  logged_at?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -393,7 +366,6 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   uploaded?: boolean
   name?: boolean
   password?: boolean
-  logged_at?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -403,7 +375,6 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   uploaded?: boolean
   name?: boolean
   password?: boolean
-  logged_at?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -413,11 +384,10 @@ export type UserSelectScalar = {
   uploaded?: boolean
   name?: boolean
   password?: boolean
-  logged_at?: boolean
   created_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tag" | "uploaded" | "name" | "password" | "logged_at" | "created_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tag" | "uploaded" | "name" | "password" | "created_at", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
@@ -428,7 +398,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     uploaded: runtime.JsonValue[]
     name: string
     password: string
-    logged_at: Date | null
     created_at: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -858,7 +827,6 @@ export interface UserFieldRefs {
   readonly uploaded: Prisma.FieldRef<"User", 'Json[]'>
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
-  readonly logged_at: Prisma.FieldRef<"User", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
 }
     

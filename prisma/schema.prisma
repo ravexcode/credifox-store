@@ -8,21 +8,29 @@ datasource db {
 }
 
 model Product {
-  id            String        @id @default(uuid())
-  name          String
-  type          String
-  variations    String[]
-  cost          Int
-  values        Json
-  images_url    String[]
+  id         String   @id @default(uuid())
+  name       String
+  type       String
+  cost       Int
+  values     Json
+  images_url String[]
+  variations String[]
 }
 
 model User {
-  id            String        @id @default(uuid())
-  tag           String        @unique
-  uploaded      Json[]
-  name          String
-  password      String
-  logged_at     DateTime?
-  created_at    DateTime      @default(now())
+  id         String   @id @default(uuid())
+  tag        String   @unique
+  uploaded   Json[]
+  name       String
+  password   String
+  created_at DateTime @default(now())
+}
+
+model Storaged {
+  id         String   @id @default(uuid())
+  name       String
+  price      Int
+  stock      Int?
+  image_url  String?
+  created_at DateTime @default(now())
 }

@@ -5,7 +5,6 @@ type ControllerReturn = {
     tag: string;
     name: string;
     uploaded: any[];
-    logged_at: Date | null;
     created_at: Date;
   };
   error?: string;

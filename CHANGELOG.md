@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.22.0:** Creacion de base para POS.
+
 **1.21.1:** Redireccion creada, sidebar actualizado y cambios en el componente de options
 
 **1.21.0:** Previsualizacion de productos creada
