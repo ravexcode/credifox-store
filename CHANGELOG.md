@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.25.0:** Mejoras en diseño en admin.
+
 **1.24.0:** Mejoras en diseño.
 
 **1.23.0:** Cambios leves en UI y mejoras de diseño.
