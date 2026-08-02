@@ -13,10 +13,10 @@ import {
 } from "@tabler/icons-react";
 
 const navItems = [
-  { href: "/pos", label: "Dashboard", icon: IconLayoutDashboard },
-  { href: "/pos/register", label: "Registro", icon: IconClipboardList },
-  { href: "/pos/products", label: "Productos", icon: IconPackage },
-  { href: "/pos/settings", label: "Configuración", icon: IconSettings },
+  { href: "/admin/pos", label: "Dashboard", icon: IconLayoutDashboard },
+  { href: "/admin/pos/register", label: "Registro", icon: IconClipboardList },
+  { href: "/admin/pos/products", label: "Productos", icon: IconPackage },
+  { href: "/admin/pos/settings", label: "Configuración", icon: IconSettings },
 ];
 
 export default function PosLayout({ children }: { children: React.ReactNode }) {
@@ -37,7 +37,7 @@ export default function PosLayout({ children }: { children: React.ReactNode }) {
 
         <nav className="flex flex-col gap-1 flex-1">
           {navItems.map((item) => {
-            const active = item.href === "/pos" ? pathname === "/pos" : pathname.startsWith(item.href);
+            const active = item.href === "/admin/pos" ? pathname === "/admin/pos" : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}

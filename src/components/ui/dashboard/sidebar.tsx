@@ -10,7 +10,9 @@ import Option from "./option";
 import {
   IconLayout,
   IconDeviceMobile,
-  IconDeviceMobileCog
+  IconDeviceMobileCog,
+  IconShoppingCart,
+  IconReceipt
 } from "@tabler/icons-react";
 
 interface Props {
@@ -21,6 +23,8 @@ const NAV_ITEMS = [
   { link: "/admin/dashboard", label: "Panel", icon: IconLayout },
   { link: "/admin/create", label: "Crear producto", icon: IconDeviceMobile },
   { link: "/admin/edit", label: "Editar productos", icon: IconDeviceMobileCog },
+  { link: "/admin/pos", label: "Punto de venta", icon: IconShoppingCart },
+  { link: "/admin/pos/sales", label: "Ventas", icon: IconReceipt },
 ];
 
 export default function Sidebar(props: Props) {

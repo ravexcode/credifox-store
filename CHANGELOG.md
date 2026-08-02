@@ -2,6 +2,8 @@
 
 ## Pre-lanzamiento:
 
+**1.26.0:** POS agregado.
+
 **1.25.0:** Mejoras en diseño en admin.
 
 **1.24.0:** Mejoras en diseño.

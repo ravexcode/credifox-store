@@ -1,6 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { useEffect, useState } from "react";
+
+import AdminLayout from "@/components/layouts/admin";
 
 import Input from "@/components/ui/forms/input";
 
@@ -10,6 +14,10 @@ import {
   updateStoraged,
   deleteStoraged
 } from "@/code/client/storaged.client";
+
+import { getUser } from "@/code/client/user.client";
+
+import User from "@/types/user";
 
 import Storaged from "@/types/storaged";
 
@@ -25,6 +33,9 @@ interface FormData {
 const EMPTY: FormData = { name: "", price: 0, stock: "", image_url: "" };
 
 export default function Page() {
+  const router = useRouter();
+
+  const [ user, setUser ] = useState<User>();
   const [ items, setItems ] = useState<Storaged[]>([]);
   const [ selected, setSelected ] = useState<string | null>(null);
   const [ form, setForm ] = useState<FormData>(EMPTY);
@@ -38,6 +49,16 @@ export default function Page() {
     const res = await getStoraged();
     setItems(res.data || []);
   };
+
+  useEffect(() => {
+    const get = async() => {
+      const content = await getUser(router);
+
+      setUser(content.data);
+    }
+
+    get();
+  }, [router]);
 
   useEffect(() => {
     const init = async() => {
@@ -137,7 +158,9 @@ export default function Page() {
   });
 
   return (
-    <div className="animate-fade-in-up">
+    <AdminLayout
+    user={user!}>
+      <div className="w-full h-screen overflow-auto p-6 animate-fade-in-up">
       <h1 className="text-3xl font-medium text-center tracking-wide mb-6">
         Productos en almacén
       </h1>
@@ -235,6 +258,7 @@ export default function Page() {
           </div>
         </form>
       </div>
-    </div>
+      </div>
+    </AdminLayout>
   );
 }
