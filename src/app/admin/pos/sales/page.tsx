@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 import AdminLayout from "@/components/layouts/admin";
 
+import PosNav from "@/components/ui/pos/nav";
+
 import { getUser } from "@/code/client/user.client";
 
 import { getOrders } from "@/code/client/orders.client";
@@ -59,6 +61,8 @@ export default function Page() {
         <h1 className="text-3xl font-medium text-center tracking-wide mb-6">
           Ventas
         </h1>
+
+        <PosNav />
 
         {loading ? (
           <p className="text-sm text-neutral-500 text-center">Cargando...</p>

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 import AdminLayout from "@/components/layouts/admin";
 
+import PosNav from "@/components/ui/pos/nav";
+
 import Input from "@/components/ui/forms/input";
 
 import {
@@ -164,6 +166,8 @@ export default function Page() {
       <h1 className="text-3xl font-medium text-center tracking-wide mb-6">
         Productos en almacén
       </h1>
+
+      <PosNav />
 
       {error && <p className="text-sm text-red-600 mb-3 text-center">{error}</p>}
       {success && <p className="text-sm text-green-600 mb-3 text-center">{success}</p>}
